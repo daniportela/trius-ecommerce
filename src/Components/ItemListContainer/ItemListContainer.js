@@ -1,7 +1,11 @@
+import './item-list-container.css';
+import ItemList from './ItemList/ItemList';
+import listadoProductos from './listado-productos.json';
+
 export default function ItemListContainer() {
     return (
-        <div className="item-list-container-heading">
-            <h1>Este es el ItemListContainer</h1>
-        </div>
+        <main className="item-list-container">
+            <ItemList listadoProductos={listadoProductos} />
+        </main>
     )
 }
