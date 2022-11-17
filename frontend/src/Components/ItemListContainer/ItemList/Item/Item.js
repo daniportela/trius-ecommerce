@@ -1,12 +1,12 @@
-export default function Item({ nombre, precio, categorias, descripcion }) {
+export default function Item({ prodTitle, prodPrice, prodCategory, prodDescription, prodImgUrl  }) {
     return (
         <article>
-            <h2>{nombre}</h2>
-            <code>{precio}</code>
+            <h2>{prodTitle}</h2>
+            <code>{prodPrice}</code>
             <div className="categorias-container">
-                {categorias.map(cat => <button key={cat}>{cat}</button>)}
+                {prodCategory}
             </div>
-            <p>{descripcion}</p>
+            <p>{prodDescription}</p>
         </article>
     )
 }

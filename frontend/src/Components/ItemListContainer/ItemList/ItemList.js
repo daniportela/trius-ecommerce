@@ -1,11 +1,11 @@
 import Item from './Item/Item';
 
-export default function ItemList({ listadoProductos }) {
+export default function ItemList({ listaProductos }) {
     return (
         <section>
-            {listadoProductos.map(({ _id, nombre, precio, categorias, descripcion }) => {
+            {listaProductos.map(({_id, title, price, description, category, imgUrl }) => {
                 return (
-                    <Item key={_id} nombre={nombre} precio={precio} categorias={categorias} descripcion={descripcion} />
+                    <Item key={_id} prodTitle={title} prodPrice={price} prodCategory={category} prodDescription={description} prodImgUrl={imgUrl} />
                 )
             })}
         </section>
