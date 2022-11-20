@@ -6,6 +6,8 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding-inline: 1%;
+    position: sticky;
+    top: 0;
 }
 
 nav ul li {
@@ -26,13 +28,10 @@ nav .cart-icon {
     height: 45%;
 }
 
-.item-list-container-heading {
-    height: 100vh;
-    display: grid;
-    place-items: center;
-}
-
-.item-list-container-heading h1 {
-    font-family: var(--heading-font);
-    font-size: var(--heading-size);
+.cart-panel {
+    width: 20%;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    background-color: #eaeaea;
 }

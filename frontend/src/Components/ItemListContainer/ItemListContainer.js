@@ -1,5 +1,6 @@
 import './item-list-container.css';
 import ItemList from './ItemList/ItemList';
+import SidebarFilter from './SidebarFilter/SidebarFilter';
 import { useEffect, useState } from 'react';
 
 export default function ItemListContainer() {
@@ -14,6 +15,7 @@ export default function ItemListContainer() {
 
     return (
         <main className="item-list-container">
+            <SidebarFilter />
             <ItemList listaProductos={listadoProductos} />
         </main>
     )
