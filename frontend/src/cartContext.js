@@ -11,6 +11,11 @@ export function useCustomContext() {
 export default function CustomProvider({ children }) {
     // Functions para acceder globalmente dentro del custom component
     const [cart, setCart] = useState([]);
+    const [cartMenuToggle, setCartMenuToggle] = useState(false);
+
+    function handleCartMenuToggle() {
+        setCartMenuToggle(!cartMenuToggle);
+    }
 
     function addToCart(product) {
         setCart([...cart, product]);
@@ -23,7 +28,10 @@ export default function CustomProvider({ children }) {
     // Se guardan todas las funciones / variables dentro de un objeto para luego exportarlo
     const contextValue = {
         addToCart,
-        removeFromCart
+        removeFromCart,
+        handleCartMenuToggle,
+        cart,
+        cartMenuToggle
     }
 
     // Finalmente, el custom component devuelve el Provider con el value del objeto creado (que contiene todas nuestras funciones). Children es pasado como props, para envolver a toda nuestra app con este component (mirar App.js) 
