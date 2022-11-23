@@ -1,7 +1,7 @@
-import { useCustomContext } from "../../../../cartContext";
+import { useCartContext } from "../../../../cartContext";
 
 export default function Item({ prodTitle, prodPrice, prodCategory, prodDescription, prodImgUrl, fullProduct }) {
-    const { addToCart, removeFromCart } = useCustomContext();
+    const { addToCart, removeFromCart } = useCartContext();
     
     return (
         <article>
@@ -15,7 +15,7 @@ export default function Item({ prodTitle, prodPrice, prodCategory, prodDescripti
                 </div>
                 <div className="product-actions-container">
                     <button onClick={() => { removeFromCart(fullProduct) }}>Ver más</button>
-                    <button onClick={() => { addToCart(fullProduct) }}>Carrito</button>
+                    <button onClick={() => { addToCart(fullProduct, 1) }}>Carrito</button>
                 </div>
                 <div className="product-categories-container">
                     {prodCategory}

@@ -4,25 +4,35 @@ const context = createContext();
 
 export const { Provider } = context;
 
-export function useCustomContext() {
+export function useCartContext() {
     return useContext(context);
 }
 
 export default function CustomProvider({ children }) {
-    // Functions para acceder globalmente dentro del custom component
     const [cart, setCart] = useState([]);
     const [cartMenuToggle, setCartMenuToggle] = useState(false);
 
     function handleCartMenuToggle() {
-        setCartMenuToggle(!cartMenuToggle);
+        setCartMenuToggle((prevValue) => !prevValue);
     }
 
-    function addToCart(product) {
-        setCart([...cart, product]);
+    function addToCart(product, count) {
+        if (isInCart(product._id)) {
+            let productInCart = cart.find(p => p._id === product._id);
+            productInCart.count++;
+            setCart([...cart]);
+        } else {
+            product.count = count;
+            setCart([...cart, product]);
+        }
     }
 
     function removeFromCart(product) {
         return setCart(cart.filter(p => p._id !== product._id));
+    }
+
+    function isInCart(id) {
+        return cart.find(product => product._id === id);
     }
 
     // Se guardan todas las funciones / variables dentro de un objeto para luego exportarlo
