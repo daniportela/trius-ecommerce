@@ -1,13 +1,12 @@
-export default function SidebarFilter() {
+export default function SidebarFilter({ productCategories }) {
     return (
         <aside>
             <h3>Filtrar por:</h3>
             <div>
                 <ul>
-                    <li>Categoría 1</li>
-                    <li>Categoría 2</li>
-                    <li>Categoría 3</li>
-                    <li>Categoría 4</li>
+                    {productCategories.map(cat => {
+                        return <li>{cat}</li>
+                    })}
                 </ul>
             </div>
         </aside>

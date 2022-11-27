@@ -27,16 +27,16 @@ export default function CustomProvider({ children }) {
         }
     }
 
-    function increaseAmountInCart(product) {
+    function changeAmountInCart(product, operator) {
         let productInCart = cart.find(p => p._id === product._id);
-        productInCart.count++;
-        setCart([...cart]);
-    }
-
-    function decreaseAmountInCart(product) {
-        let productInCart = cart.find(p => p._id === product._id);
-        productInCart.count--;
-        setCart([...cart]);
+        
+        if (operator === "+") {
+            productInCart.count++;
+            setCart([...cart]);
+        } else if (operator === "-") {
+            productInCart.count--;
+            setCart([...cart]);
+        }
     }
 
     function removeFromCart(product) {
@@ -52,8 +52,7 @@ export default function CustomProvider({ children }) {
         addToCart,
         removeFromCart,
         handleCartMenuToggle,
-        increaseAmountInCart,
-        decreaseAmountInCart,
+        changeAmountInCart,
         cart,
         cartMenuToggle
     }
