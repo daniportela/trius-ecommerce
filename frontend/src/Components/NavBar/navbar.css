@@ -50,14 +50,6 @@ nav .cart-icon {
     transition: .3s ease;
 }
 
-.button-wrapper {
-    width: 100%;
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-}
-
 .cart-menu-close {
     font-size: 2.2rem;
     background-color: #2d2d2d;
@@ -69,7 +61,7 @@ nav .cart-icon {
 
 /******** Util classes for toggling ********/
 .open {
-    width: 30%;
+    width: 35%;
 }
 
 .close {
@@ -93,16 +85,16 @@ nav .cart-icon {
     margin-top: 40px;
 }
 
-.cart-content table th {
+ th {
     background-color: #2d2d2d;
     height: 50px;
     color: #fff;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     font-weight: 300;
 }
 
 .cart-content table td {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
 }
 
 .table-title {
@@ -122,6 +114,11 @@ nav .cart-icon {
     text-align: center;
 }
 
+.th-trash {
+    background: none;
+    width: 5%;
+}
+
 .th-img {
     width: 10%;
 }
@@ -135,9 +132,29 @@ nav .cart-icon {
 }
 
 .th-price {
-    width: 25%;
+    width: 20%;
 }
 
 .cart-content table img {
     width: 100%;
+}
+
+.cart-amount-changer {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: none;
+    background-color: #2d2d2d;
+    color: #fff;
+    padding-top: .1%;
+    padding-left: .3%;
+}
+
+.cart-amount-changer:disabled {
+    background-color: #999999;
+    color: #7b7b7b;
+}
+
+.td-amount span {
+    margin-inline: 10px;
 }

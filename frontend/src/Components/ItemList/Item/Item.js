@@ -1,10 +1,11 @@
-import { useCartContext } from "../../../../cartContext";
+import { useCartContext } from "../../../cartContext";
+import { Link } from "react-router-dom";
 
-export default function Item({ prodTitle, prodPrice, prodCategory, prodDescription, prodImgUrl, fullProduct }) {
-    const { addToCart, removeFromCart } = useCartContext();
+export default function Item({ prodId, prodTitle, prodPrice, prodCategory, prodImgUrl, fullProduct }) {
+    const { addToCart } = useCartContext();
     
     return (
-        <article>
+        <article className="product-card">
             <div className="product-image-container">
                 <img src={prodImgUrl} alt={`Imagen de producto ${prodTitle}`} />
             </div>
@@ -14,7 +15,7 @@ export default function Item({ prodTitle, prodPrice, prodCategory, prodDescripti
                     <span>{prodPrice}</span>
                 </div>
                 <div className="product-actions-container">
-                    <button onClick={() => { removeFromCart(fullProduct) }}>Ver más</button>
+                    <Link to={`/item/${prodId}`}>Ver más</Link>
                     <button onClick={() => { addToCart(fullProduct, 1) }}>Carrito</button>
                 </div>
                 <div className="product-categories-container">

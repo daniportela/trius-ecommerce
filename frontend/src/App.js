@@ -1,24 +1,32 @@
 import './App.css';
 import NavBar from './Components/NavBar/NavBar';
-import ItemListContainer from './Components/ItemListContainer/ItemListContainer';
-import { createBrowserRouter, RouterProvider, Route } from 'react-router-dom';
+import ItemList from './Components/ItemList/ItemList';
+import ItemDetail from './Components/ItemDetail/ItemDetail';
+// import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import CustomProvider from './cartContext';
 
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <ItemListContainer />
-  }
-])
-
 function App() {
+  const [listadoProductos, setListadoProductos] = useState([]);
+
+  useEffect(() => { // Fetch data from db once, and set the product catalog
+      (async () => {
+          const catalogoProductos = await fetch('http://localhost:5000/productos').then(data => data.json())
+          setListadoProductos(catalogoProductos);
+      })();
+  }, [])
+
   return (
-    <>
       <CustomProvider>
-        <NavBar/>
-        <RouterProvider router={router} />
+          <BrowserRouter>
+            <NavBar />
+            <Routes>
+              <Route exact path="/" element={ <ItemList listaProductos={listadoProductos} /> } />
+              <Route exact path="/item/:id" element={ <ItemDetail />} />
+            </Routes>
+          </BrowserRouter>
       </CustomProvider>
-    </>
   );
 }
 
