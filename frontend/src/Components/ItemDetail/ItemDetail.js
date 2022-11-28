@@ -1,6 +1,6 @@
 import './item-detail.css';
 import { useParams } from "react-router-dom";
-import { useCartContext } from "../../cartContext";
+import { useShopContext } from "../../shopContext";
 import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faMinus, faCartShopping } from '@fortawesome/free-solid-svg-icons';
@@ -8,7 +8,7 @@ import { faPlus, faMinus, faCartShopping } from '@fortawesome/free-solid-svg-ico
 export default function ItemDetail() {
     const [productDetail, setProductDetail] = useState({});
     const [count, setCount] = useState(1);
-    const { addToCart } = useCartContext();
+    const { addToCart } = useShopContext();
     const { id } = useParams();
 
     function productTest(product, count) {

@@ -2,10 +2,9 @@ import './App.css';
 import NavBar from './Components/NavBar/NavBar';
 import ItemList from './Components/ItemList/ItemList';
 import ItemDetail from './Components/ItemDetail/ItemDetail';
-// import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import CustomProvider from './cartContext';
+import CustomProvider from './shopContext';
 
 function App() {
   const [listadoProductos, setListadoProductos] = useState([]);

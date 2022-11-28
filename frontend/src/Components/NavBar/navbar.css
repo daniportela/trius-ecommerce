@@ -30,13 +30,39 @@ nav .logo {
 nav .cart-icon {
     width: 50px;
     height: 50px;
-    padding-top: 3px;
+    padding-top: 4px;
     padding-right: 3px;
     border-radius: 50%;
     border: none;
     background-color: #fff;
     font-size: 2.2rem;
     cursor: pointer;
+    display: grid;
+    place-items: center;
+    position: relative;
+}
+
+nav .cart-icon span {
+    width: 20px;
+    height: 20px;
+    padding-top: 2px;
+    background-color: #2d2d2d;
+    border-radius: 50%;
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    font-size: 12px;
+    color: #fff;
+    font-family: var(--heading-font);
+    text-align: center;
+}
+
+span.hidden {
+    opacity: 0;
+}
+
+span.visible {
+    opacity: 1;
 }
 
 /******** Cart menu ********/

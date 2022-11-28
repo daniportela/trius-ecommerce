@@ -2,9 +2,11 @@ import './item-list.css';
 import Item from './Item/Item';
 import SidebarFilter from '../SidebarFilter/SidebarFilter';
 import { useState, useEffect } from 'react';
+import { useShopContext } from '../../shopContext';
 
 export default function ItemList({ listaProductos }) {
     const [productCategories, setProductCategories] = useState([]);
+    const { activeCategory } = useShopContext();
 
     useEffect(() => {
         listaProductos.map(p => {
@@ -13,18 +15,20 @@ export default function ItemList({ listaProductos }) {
             }
             return productCategories;
         })
-    }, [listaProductos, productCategories])
-
+    }, [listaProductos, productCategories]);
 
     return (
         <main>
             <SidebarFilter productCategories={productCategories} />
             <section className="product-list-container">
-                {listaProductos.map(product => {
-                    return (
-                        <Item key={product._id} prodId={product._id} prodTitle={product.title} prodPrice={product.price} prodCategory={product.category} prodDescription={product.description} prodImgUrl={product.image} fullProduct={product} />
-                    )
-                })}
+                {listaProductos
+                    .filter(p => activeCategory.length === 0 ? p : activeCategory.includes(p.category))
+                    .map(product => {
+                        return (
+                            <Item key={product._id} prodId={product._id} prodTitle={product.title} prodPrice={product.price} prodCategory={product.category} prodDescription={product.description} prodImgUrl={product.image} fullProduct={product} />
+                        )
+                    })
+                }
             </section>
         </main>
     )

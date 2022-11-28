@@ -37,7 +37,7 @@ section.product-list-container {
     margin-inline: auto;
     padding-bottom: 200px;
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     column-gap: 40px;
     row-gap: 80px;
     overflow: scroll;
