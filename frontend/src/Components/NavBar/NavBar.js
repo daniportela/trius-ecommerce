@@ -1,25 +1,29 @@
 import './navbar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { faCartShopping, faPlus } from '@fortawesome/free-solid-svg-icons';
 import logo from './logo.svg';
 import CartWidget from './CartWidget/CartWidget';
 import { useShopContext } from '../../shopContext';
 import { Link } from 'react-router-dom';
 
 export default function NavBar() {
-    const { handleCartMenuToggle, totalAmount } = useShopContext();
+    const { handleCartMenuToggle, totalAmount, handleFormOverlayToggle } = useShopContext();
 
     return (
-        <div className="header-navigation">
+        <header>
             <nav>
                 <Link to="/"><img src={logo} className="logo" alt="Este es el logo del ecommerce" /></Link>
-                {/* <button className="cart-icon" onClick={ handleCartMenuToggle }><FontAwesomeIcon icon={faCartShopping} title="Este es el ícono del carrito de compras" /></button> */}
-                <div className="cart-icon" onClick={ handleCartMenuToggle }>
-                    <FontAwesomeIcon icon={faCartShopping} title="Este es el ícono del carrito de compras" />
-                    <span className={totalAmount < 1 ? "hidden" : "visible"}>{totalAmount}</span>
+                <div className="header-buttons-container">
+                    <div className="create-product" onClick={ handleFormOverlayToggle }>
+                        <FontAwesomeIcon icon={faPlus} title="Click here to POST a new product to the database" />
+                    </div>
+                    <div className="cart-icon" onClick={ handleCartMenuToggle }>
+                        <FontAwesomeIcon icon={faCartShopping} title="This is the cart icon" />
+                        <span className={totalAmount < 1 ? "hidden" : "visible"}>{totalAmount}</span>
+                    </div>
                 </div>
             </nav>
             <CartWidget />
-        </div>
+        </header>
     )
 }

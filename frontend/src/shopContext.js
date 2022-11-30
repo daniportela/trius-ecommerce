@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from 'react';
+import toast from 'react-hot-toast';
 
 const context = createContext();
 
@@ -11,11 +12,16 @@ export function useShopContext() {
 export default function CustomProvider({ children }) {
     const [cart, setCart] = useState([]); // Used for most actions (add/remove product, increase/decrease amount in cart)
     const [cartMenuToggle, setCartMenuToggle] = useState(false); // Toggles cart menu
+    const [formOverlayToggle, setFormOverlayToggle] = useState(false); // Toggles cart menu
     const [totalAmount, setTotalAmount] = useState(0); // Number of total products, displayed in cart icon
     const [activeCategory, setActiveCategory] = useState([]); // Sets active category(ies) for filtering products
 
     function handleCartMenuToggle() { // Toggles cart menu
-        setCartMenuToggle((prevValue) => !prevValue);
+        setCartMenuToggle(prevValue => !prevValue);
+    }
+
+    function handleFormOverlayToggle() { // Toggles form overlay for creating new products
+        setFormOverlayToggle(prevValue => !prevValue);
     }
 
     function addToCart(product, count) { // Add products to cart
@@ -24,10 +30,12 @@ export default function CustomProvider({ children }) {
             productInCart.count += count;
             setTotalAmount(prevValue => prevValue += count);
             setCart([...cart]);
+            toast.success(`${product.title} (${count}) succesfully added to cart`, { className: 'toast-success', containerClassName: 'toast-container' });
         } else {
             setTotalAmount(prevValue => prevValue += count);
             product.count = count;
             setCart([...cart, product]);
+            toast.success(`${product.title} (${count}) succesfully added to cart`, { className: 'toast-success', containerClassName: 'toast-container' });
         }
     }
 
@@ -68,6 +76,8 @@ export default function CustomProvider({ children }) {
         handleCartMenuToggle,
         changeAmountInCart,
         handleCategoryChange,
+        handleFormOverlayToggle,
+        formOverlayToggle,
         activeCategory,
         totalAmount,
         cart,

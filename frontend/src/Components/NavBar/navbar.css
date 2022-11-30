@@ -1,13 +1,12 @@
 /******** Main header navigation ********/
-.header-navigation {
-    position: sticky;
+header {
+    position: relative;
     top: 0;
 }
 
 nav {
     width: 100%;
     height: 100px;
-    background-color: var(--french-violet);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -27,19 +26,32 @@ nav .logo {
     height: 65%;
 }
 
+/******** Cart ********/
+.header-buttons-container {
+    display: flex;
+    align-items: center;
+}
+
+/* Create product button */
+nav .create-product,
 nav .cart-icon {
     width: 50px;
     height: 50px;
-    padding-top: 4px;
-    padding-right: 3px;
     border-radius: 50%;
     border: none;
-    background-color: #fff;
-    font-size: 2.2rem;
+    background-color: var(--white);
+    box-shadow: -1px 1px 2px rgba(197, 197, 197, 0.2), 1px -1px 2px rgba(197, 197, 197, 0.2), -1px -1px 2px rgba(255, 255, 255, 0.9), 1px 1px 3px rgba(197, 197, 197, 0.9);
+    font-size: 2rem;
     cursor: pointer;
     display: grid;
     place-items: center;
-    position: relative;
+}
+
+/* Cart icon & product count */
+nav .cart-icon {
+    padding-top: 4px;
+    padding-right: 3px;
+    margin-left: 20px;
 }
 
 nav .cart-icon span {
@@ -65,7 +77,7 @@ span.visible {
     opacity: 1;
 }
 
-/******** Cart menu ********/
+/* Toggleable cart panel */
 .cart-panel {
     height: 100vh;
     position: absolute;
@@ -78,11 +90,20 @@ span.visible {
 
 .cart-menu-close {
     font-size: 2.2rem;
-    background-color: #2d2d2d;
-    color: #fff;
+    color: #2d2d2d;
+    padding-left: 2px;
+    padding-top: 2px;
     border-radius: 50%;
+    border: 2px solid #2d2d2d;
     width: 50px;
     height: 50px;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.cart-menu-close:hover {
+    color: var(--white);
+    background-color: #2d2d2d;
 }
 
 /******** Util classes for toggling ********/
@@ -99,16 +120,18 @@ span.visible {
     width: 90%;
     margin-inline: auto;
     margin-top: 50px;
-    font-family: var(--heading-font);
 }
 
 .cart-content h4 {
     font-size: 5rem;
+    font-family: var(--heading-font);
+    margin-top: 30px;
 }
 
 .cart-content p {
     font-size: 2.6rem;
     font-weight: 300;
+    font-family: var(--text-font);
     margin-top: 15px;
 }
 
@@ -117,16 +140,18 @@ span.visible {
     margin-top: 40px;
 }
 
- th {
+th {
+    font-family: var(--heading-font);
     background-color: #2d2d2d;
     height: 50px;
     color: #fff;
-    font-size: 1.4rem;
-    font-weight: 300;
+    font-size: 1.6rem;
+    font-weight: 500;
 }
 
 .cart-content table td {
     font-size: 1.6rem;
+    font-family: var(--text-font);
 }
 
 .table-title {
@@ -146,9 +171,12 @@ span.visible {
     text-align: center;
 }
 
-.th-trash {
-    background: none;
-    width: 5%;
+.td-trash {
+    text-align: center;
+}
+
+.td-trash svg {
+    cursor: pointer;
 }
 
 .th-img {
@@ -165,6 +193,11 @@ span.visible {
 
 .th-price {
     width: 20%;
+}
+
+.th-trash {
+    background: none;
+    width: 5%;
 }
 
 .cart-content table img {
@@ -189,4 +222,11 @@ span.visible {
 
 .td-amount span {
     margin-inline: 10px;
+}
+
+/******** NavBar media queries ********/
+@media (max-width: 1440px) {
+    nav {
+        padding-inline: 5%;
+    }
 }

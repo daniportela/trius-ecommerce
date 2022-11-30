@@ -7,12 +7,10 @@ export default function CartWidget() {
 
     return (
         <div className={`cart-panel ${cartMenuToggle ? 'open' : 'close'}`}>
-            <div className="button-wrapper">
+            <div className="cart-content">
                 <button onClick={ handleCartMenuToggle } className="cart-menu-close">
                     <FontAwesomeIcon icon={faArrowRight} />
                 </button>
-            </div>
-            <div className="cart-content">
                 {cart.length === 0 
                     ? <>
                         <h4>Your cart is empty</h4>
@@ -41,8 +39,8 @@ export default function CartWidget() {
                                                 <span>{ product.count }</span>
                                                 <button onClick={() => changeAmountInCart(product, "+")} className="cart-amount-changer"><FontAwesomeIcon icon={faPlus} size="xs" /></button>
                                             </td>
-                                            <td className="td-price">{ product.price }</td>
-                                            <td onClick={() => { removeFromCart(product) }}><FontAwesomeIcon icon={faTrash} /></td>
+                                            <td className="td-price">{ `$${product.price}` }</td>
+                                            <td className="td-trash"><FontAwesomeIcon icon={faTrash} onClick={() => { removeFromCart(product) }} /></td>
                                         </tr>
                                     )
                                 })}

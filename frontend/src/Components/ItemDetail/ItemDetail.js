@@ -3,17 +3,13 @@ import { useParams } from "react-router-dom";
 import { useShopContext } from "../../shopContext";
 import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus, faMinus, faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faMinus, faCartPlus } from '@fortawesome/free-solid-svg-icons';
 
 export default function ItemDetail() {
     const [productDetail, setProductDetail] = useState({});
     const [count, setCount] = useState(1);
     const { addToCart } = useShopContext();
     const { id } = useParams();
-
-    function productTest(product, count) {
-        console.log(product, count);
-    }
 
     useEffect(() => { // Fetch data from db once, and set the product unit (detail)
         (async () => {
@@ -41,7 +37,7 @@ export default function ItemDetail() {
                                 <FontAwesomeIcon icon={faPlus} />
                             </button>
                         </div>
-                        <button className="add-to-cart" onClick={() => { addToCart(productDetail, count) }}>Add to cart <FontAwesomeIcon icon={faCartShopping} /></button>
+                        <button className="add-to-cart" onClick={() => { addToCart(productDetail, count) }}>Add to cart <FontAwesomeIcon icon={faCartPlus} /></button>
                     </div>
                 </div>
             </article>

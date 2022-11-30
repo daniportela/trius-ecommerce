@@ -1,4 +1,3 @@
-import './sidebar-filter.css';
 import { useShopContext } from '../../shopContext';
 
 export default function SidebarFilter({ productCategories }) {

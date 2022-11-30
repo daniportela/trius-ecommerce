@@ -32,11 +32,21 @@ const ProductModel = mongoose.model("products", productSchema);
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // App.get
-app.get('/productos', (req, res) => {
+app.get('/products', (req, res) => {
   const productos = ProductModel.find({}, (err, docs) => {
     if (!err) res.send(docs);
   });
 })
+
+app.post('/create', (req, res) => {
+  res.json({
+      title: req.body.title,
+      price: req.body.price,
+      description: req.body.description,
+      category: req.body.category
+    }
+  )
+});
 
 // App.post
 

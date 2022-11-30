@@ -6,17 +6,17 @@ export default function Item({ prodId, prodTitle, prodPrice, prodCategory, prodI
     
     return (
         <article className="product-card">
+            <span>{`$${prodPrice}`}</span>
             <div className="product-image-container">
                 <img src={prodImgUrl} alt={`Imagen de producto ${prodTitle}`} />
             </div>
             <div className="product-info-container">
                 <div className="product-title-price-container">
                     <h2>{prodTitle}</h2>
-                    <span>{prodPrice}</span>
                 </div>
                 <div className="product-actions-container">
-                    <Link to={`/item/${prodId}`}>Ver más</Link>
-                    <button onClick={() => { addToCart(fullProduct, 1) }}>Carrito</button>
+                    <Link to={`/item/${prodId}`}>More info.</Link>
+                    <button onClick={() => { addToCart(fullProduct, 1) }}>Add to cart</button>
                 </div>
                 <div className="product-categories-container">
                     {prodCategory}

@@ -85,11 +85,12 @@ article.product-detail {
     margin-left: 10px;
     padding-inline: 25px;
     border: none;
-    font-family: var(--heading-font);
+    font-family: var(--text-font);
     font-weight: 600;
     background-color: #2d2d2d;
     font-size: 2rem;
-    color: #fff;
+    color: var(--white);
+    cursor: pointer;
 }
 
 .add-to-cart svg {

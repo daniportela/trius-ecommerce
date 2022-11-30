@@ -1,15 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Oswald:wght@200;300;400;500&display=swap');
 :root {
   font-size: 62.5%;
   
   /* font-family */
-  --heading-font: 'Raleway';
+  --logo-font: 'Cinzel', serif;
+  --heading-font: 'Oswald', sans-serif;
+  --text-font: 'Raleway', sans-serif;
 
   /*font-size*/
-  --product-title: 2.6rem;
-  --product-info: 2rem;
-  --product-price: 2.4rem;
+  --product-title-size: 2.2rem;
+  --product-info-size: 2rem;
+  --product-price-size: 2rem;
+  --buttons-size: 1.4rem;
+  --notifications-size: 1.6rem;
 
   /* Colores */
   --russian-violet: #240046ff;
@@ -17,6 +21,7 @@
   --purple: #5a189aff;
   --french-violet: #7b2cbfff;
   --amethyst: #9d4eddff;
+  --white: #ffffff;
 }
 
 *,
