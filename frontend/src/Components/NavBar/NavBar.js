@@ -3,18 +3,24 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping, faPlus } from '@fortawesome/free-solid-svg-icons';
 import logo from './logo.svg';
 import CartWidget from './CartWidget/CartWidget';
-import { useShopContext } from '../../shopContext';
+import { useCartContext } from '../../shopContext';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
-export default function NavBar() {
-    const { handleCartMenuToggle, totalAmount, handleFormOverlayToggle } = useShopContext();
+export default function NavBar({ handleIsToggled }) {
+    const [cartMenuToggle, setCartMenuToggle] = useState(false);
+    const { totalAmount } = useCartContext();
+
+    function handleCartMenuToggle() {
+        setCartMenuToggle(prevValue => !prevValue);
+    }
 
     return (
         <header>
             <nav>
                 <Link to="/"><img src={logo} className="logo" alt="Este es el logo del ecommerce" /></Link>
                 <div className="header-buttons-container">
-                    <div className="create-product" onClick={ handleFormOverlayToggle }>
+                    <div className="create-product" onClick={ handleIsToggled }>
                         <FontAwesomeIcon icon={faPlus} title="Click here to POST a new product to the database" />
                     </div>
                     <div className="cart-icon" onClick={ handleCartMenuToggle }>
@@ -23,7 +29,7 @@ export default function NavBar() {
                     </div>
                 </div>
             </nav>
-            <CartWidget />
+            <CartWidget handleToggle={ handleCartMenuToggle } isToggled={ cartMenuToggle } />
         </header>
     )
 }

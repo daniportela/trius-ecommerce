@@ -39,13 +39,18 @@ app.get('/products', (req, res) => {
 })
 
 app.post('/create', (req, res) => {
-  res.json({
-      title: req.body.title,
-      price: req.body.price,
-      description: req.body.description,
-      category: req.body.category
-    }
-  )
+  const newProduct = new ProductModel({
+    title: req.body.title,
+    price: req.body.price,
+    description: req.body.description,
+    category: req.body.category,
+    image: req.body.image
+  });
+
+  newProduct.save((err, doc) => {
+    if (err) console.log(err);
+    res.json(doc);
+  })
 });
 
 // App.post

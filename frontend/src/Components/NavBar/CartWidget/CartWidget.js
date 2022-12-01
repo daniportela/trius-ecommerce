@@ -1,14 +1,14 @@
-import { useShopContext } from '../../../shopContext';
+import { useCartContext } from '../../../shopContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faPlus, faMinus, faTrash } from '@fortawesome/free-solid-svg-icons';
 
-export default function CartWidget() {
-    const { handleCartMenuToggle, cartMenuToggle, cart, changeAmountInCart, removeFromCart } = useShopContext();
+export default function CartWidget({ isToggled, handleToggle }) {
+    const { cart, changeAmountInCart, removeFromCart, emptyCart } = useCartContext();
 
     return (
-        <div className={`cart-panel ${cartMenuToggle ? 'open' : 'close'}`}>
+        <div className={`cart-panel ${isToggled ? 'open' : 'close'}`}>
             <div className="cart-content">
-                <button onClick={ handleCartMenuToggle } className="cart-menu-close">
+                <button onClick={ handleToggle } className="cart-menu-close">
                     <FontAwesomeIcon icon={faArrowRight} />
                 </button>
                 {cart.length === 0 
@@ -45,6 +45,12 @@ export default function CartWidget() {
                                     )
                                 })}
                             </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td className="td-empty" onClick={ emptyCart }>EMPTY</td>
+                                    <td className="td-total" colSpan="3">TOTAL: ${cart.reduce((acc, currentVal) => acc + (currentVal.price * currentVal.count), 0)}</td>
+                                </tr>
+                            </tfoot>
                         </table>
                       </>
                 }

@@ -1,8 +1,8 @@
-import { useShopContext } from "../../../shopContext";
+import { useCartContext } from "../../../shopContext";
 import { Link } from "react-router-dom";
 
 export default function Item({ prodId, prodTitle, prodPrice, prodCategory, prodImgUrl, fullProduct }) {
-    const { addToCart } = useShopContext();
+    const { addToCart } = useCartContext();
     
     return (
         <article className="product-card">

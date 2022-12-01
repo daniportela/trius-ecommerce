@@ -45,6 +45,7 @@ nav .cart-icon {
     cursor: pointer;
     display: grid;
     place-items: center;
+    position: relative;
 }
 
 /* Cart icon & product count */
@@ -57,7 +58,7 @@ nav .cart-icon {
 nav .cart-icon span {
     width: 20px;
     height: 20px;
-    padding-top: 2px;
+    padding-top: 1px;
     background-color: #2d2d2d;
     border-radius: 50%;
     position: absolute;
@@ -80,7 +81,7 @@ span.visible {
 /* Toggleable cart panel */
 .cart-panel {
     height: 100vh;
-    position: absolute;
+    position: fixed;
     right: 0;
     top: 0;
     background-color: #eaeaea;
@@ -108,7 +109,7 @@ span.visible {
 
 /******** Util classes for toggling ********/
 .open {
-    width: 35%;
+    width: 40%;
 }
 
 .close {
@@ -137,14 +138,14 @@ span.visible {
 
 .cart-content table {
     width: 100%;
-    margin-top: 40px;
+    margin-top: 10px;
 }
 
 th {
     font-family: var(--heading-font);
     background-color: #2d2d2d;
     height: 50px;
-    color: #fff;
+    color: var(--white);
     font-size: 1.6rem;
     font-weight: 500;
 }
@@ -224,9 +225,59 @@ th {
     margin-inline: 10px;
 }
 
+tfoot {
+    text-align: right;
+    color: var(--white);
+    font-size: 1.6rem;
+    font-weight: 500;
+    height: 50px;
+}
+
+.cart-content .td-total {
+    font-family: var(--heading-font);
+    padding-right: 5%;
+    background-color: #2d2d2d;
+}
+
+.cart-content .td-empty {
+    font-family: var(--heading-font);
+    text-align: center;
+    color: var(--white);
+    background-color: #FF6464;
+    cursor: pointer;
+}
+
 /******** NavBar media queries ********/
+@media (max-width: 1768px) {
+    .open {
+        width: 40%;
+    }
+}
+
 @media (max-width: 1440px) {
     nav {
         padding-inline: 5%;
+    }
+
+    .open {
+        width: 60%;
+    }
+}
+
+@media (max-width: 980px) {
+    .open {
+        width: 70%;
+    }
+}
+
+@media (max-width: 768px) {
+    .open {
+        width: 80%;
+    }
+}
+
+@media (max-width: 550px) {
+    .open {
+        width: 100%;
     }
 }

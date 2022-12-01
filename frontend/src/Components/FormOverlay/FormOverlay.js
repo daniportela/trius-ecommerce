@@ -1,18 +1,17 @@
 import './form-overlay.css';
-import { useShopContext } from '../../shopContext';
+import { useCartContext } from '../../shopContext';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXmark} from '@fortawesome/free-solid-svg-icons';
 
-function handleCreateNewProduct(e) {
-    e.preventDefault();
-    fetch();
-}
-
-export default function FormOverlay() {
-    const { handleFormOverlayToggle, formOverlayToggle } = useShopContext();
+export default function FormOverlay({ isToggled, handleIsToggled }) {
+    const { handleFormOverlayToggle, formOverlayToggle } = useCartContext();
 
     return (
-        <section className={`form-overlay ${formOverlayToggle && 'form-open'}`}>
+        <section className={`form-overlay ${isToggled && 'form-open'}`}>
             <div className="form-container">
-                <button onClick={ handleFormOverlayToggle }>X</button>
+                <button className="form-overlay-close" onClick={ handleIsToggled }>
+                    <FontAwesomeIcon icon={faXmark} />
+                </button>
                 <h3>Create a new product</h3>
                 <form method="POST" action="http://localhost:5000/create">
                     <label>Product name

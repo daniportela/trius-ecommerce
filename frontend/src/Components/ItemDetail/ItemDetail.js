@@ -1,6 +1,6 @@
 import './item-detail.css';
 import { useParams } from "react-router-dom";
-import { useShopContext } from "../../shopContext";
+import { useCartContext } from "../../shopContext";
 import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faMinus, faCartPlus } from '@fortawesome/free-solid-svg-icons';
@@ -8,7 +8,7 @@ import { faPlus, faMinus, faCartPlus } from '@fortawesome/free-solid-svg-icons';
 export default function ItemDetail() {
     const [productDetail, setProductDetail] = useState({});
     const [count, setCount] = useState(1);
-    const { addToCart } = useShopContext();
+    const { addToCart } = useCartContext();
     const { id } = useParams();
 
     useEffect(() => { // Fetch data from db once, and set the product unit (detail)

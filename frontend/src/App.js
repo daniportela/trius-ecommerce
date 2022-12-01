@@ -10,6 +10,20 @@ import CustomProvider from './shopContext';
 
 function App() {
   const [listadoProductos, setListadoProductos] = useState([]);
+  const [formOverlayToggle, setFormOverlayToggle] = useState(false);
+  const [activeCategory, setActiveCategory] = useState([]); 
+
+  function handleFormOverlayToggle() { // Toggles form overlay for writing new products to the database
+    setFormOverlayToggle(prevValue => !prevValue);
+  }
+
+  function handleCategoryChange(category) { // Sets active category(ies) for filtering products
+      if (!activeCategory.includes(category)) {
+          setActiveCategory([...activeCategory, category]);
+      } else {
+          setActiveCategory(activeCategory.filter(c => c !== category));
+      }
+  }
 
   useEffect(() => { // Fetch data from db once, and set the product catalog
       (async () => {
@@ -22,10 +36,10 @@ function App() {
       <CustomProvider>
           <BrowserRouter>
             <Toaster />
-            <FormOverlay />
-            <NavBar />
+            <FormOverlay isToggled={ formOverlayToggle } handleIsToggled={ handleFormOverlayToggle } />
+            <NavBar isToggled={ formOverlayToggle } handleIsToggled={ handleFormOverlayToggle } />
             <Routes>
-              <Route exact path="/" element={ <ItemList listaProductos={listadoProductos} /> } />
+              <Route exact path="/" element={ <ItemList listaProductos={ listadoProductos } activeCategory={ activeCategory } handleActiveCategory={ handleCategoryChange } /> } />
               <Route exact path="/item/:id" element={ <ItemDetail />} />
             </Routes>
           </BrowserRouter>

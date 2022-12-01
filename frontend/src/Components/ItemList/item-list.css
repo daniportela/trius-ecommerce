@@ -68,6 +68,7 @@ article.product-card {
     position: absolute;
     top: 10px;
     right: 10px;
+    z-index: 1;
 }
 
 .product-image-container {
@@ -83,8 +84,7 @@ article.product-card {
 }
 
 .product-image-container img:hover {
-    width: 110%;
-    height: 110%;
+    transform: scale(1.1);
 }
 
 .product-info-container {
