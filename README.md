@@ -56,7 +56,7 @@ npm run dev
 ^C
 ```
 
-## Modificaciones pendientes
+## Posibles mejoras
 
 Estos son algunos features para continuar mejorando la aplicación que, al momento de la entrega del proyecto, quedan pendientes:
 
