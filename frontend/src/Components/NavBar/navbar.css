@@ -17,7 +17,7 @@ nav ul li {
     display: inline;
     margin: 10px;
     font-size: 1.6rem;
-    color: #fff;
+    color: var(--white);
     font-family: var(--heading-font);
 }
 
@@ -59,13 +59,13 @@ nav .cart-icon span {
     width: 20px;
     height: 20px;
     padding-top: 1px;
-    background-color: #2d2d2d;
+    background-color: var(--main-color);
     border-radius: 50%;
     position: absolute;
     top: -4px;
     right: -4px;
     font-size: 12px;
-    color: #fff;
+    color: var(--white);
     font-family: var(--heading-font);
     text-align: center;
 }
@@ -84,18 +84,18 @@ span.visible {
     position: fixed;
     right: 0;
     top: 0;
-    background-color: #eaeaea;
+    background-color: var(--secondary-color);
     z-index: 5;
     transition: .3s ease;
 }
 
 .cart-menu-close {
     font-size: 2.2rem;
-    color: #2d2d2d;
+    color: var(--main-color);
     padding-left: 2px;
     padding-top: 2px;
     border-radius: 50%;
-    border: 2px solid #2d2d2d;
+    border: 2px solid var(--main-color);
     width: 50px;
     height: 50px;
     cursor: pointer;
@@ -104,7 +104,7 @@ span.visible {
 
 .cart-menu-close:hover {
     color: var(--white);
-    background-color: #2d2d2d;
+    background-color: var(--main-color);
 }
 
 /******** Util classes for toggling ********/
@@ -143,7 +143,7 @@ span.visible {
 
 th {
     font-family: var(--heading-font);
-    background-color: #2d2d2d;
+    background-color: var(--main-color);
     height: 50px;
     color: var(--white);
     font-size: 1.6rem;
@@ -210,14 +210,14 @@ th {
     height: 15px;
     border-radius: 50%;
     border: none;
-    background-color: #2d2d2d;
-    color: #fff;
+    background-color: var(--main-color);
+    color: var(--white);
     padding-top: .1%;
     padding-left: .3%;
 }
 
 .cart-amount-changer:disabled {
-    background-color: #999999;
+    background-color: var(--disabled);
     color: #7b7b7b;
 }
 
@@ -236,14 +236,14 @@ tfoot {
 .cart-content .td-total {
     font-family: var(--heading-font);
     padding-right: 5%;
-    background-color: #2d2d2d;
+    background-color: var(--main-color);
 }
 
 .cart-content .td-empty {
     font-family: var(--heading-font);
     text-align: center;
     color: var(--white);
-    background-color: #FF6464;
+    background-color: var(--warning);
     cursor: pointer;
 }
 

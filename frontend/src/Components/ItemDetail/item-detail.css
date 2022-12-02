@@ -21,7 +21,7 @@ article.product-detail {
 .product-detail-img {
     width: 40%;
     margin: auto;
-    border: 1px solid #eaeaea;
+    border: 1px solid var(--secondary-color);
     padding: 3%;
 }
 
@@ -54,7 +54,7 @@ article.product-detail {
 }
 
 .amount-to-add {
-    border: 1px solid #eaeaea;
+    border: 1px solid var(--secondary-color);
     padding: 2px;
     display: flex;
     flex-direction: row;
@@ -65,13 +65,13 @@ article.product-detail {
     height: 50px;
     border-radius: 0;
     border: none;
-    background-color: #2d2d2d;
-    color: #fff;
+    background-color: var(--main-color);
+    color: var(--white);
 }
 
 .amount-to-add button:disabled {
-    background-color: #eaeaea;
-    color: #999999;
+    background-color: var(--secondary-color);
+    color: var(--disabled);
 }
 
 .counter {
@@ -87,7 +87,7 @@ article.product-detail {
     border: none;
     font-family: var(--text-font);
     font-weight: 600;
-    background-color: #2d2d2d;
+    background-color: var(--main-color);
     font-size: 2rem;
     color: var(--white);
     cursor: pointer;

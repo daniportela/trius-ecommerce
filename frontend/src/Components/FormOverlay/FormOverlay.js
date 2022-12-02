@@ -1,11 +1,8 @@
 import './form-overlay.css';
-import { useCartContext } from '../../shopContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark} from '@fortawesome/free-solid-svg-icons';
 
 export default function FormOverlay({ isToggled, handleIsToggled }) {
-    const { handleFormOverlayToggle, formOverlayToggle } = useCartContext();
-
     return (
         <section className={`form-overlay ${isToggled && 'form-open'}`}>
             <div className="form-container">
@@ -24,7 +21,7 @@ export default function FormOverlay({ isToggled, handleIsToggled }) {
                         <input type="text" name="description" />
                     </label>
                     <label>Product category(ies)
-                        <input type="text" name="category" />
+                        <input type="text" name="categories" />
                     </label>
                     <label>Product image
                         <input type="text" name="image" />

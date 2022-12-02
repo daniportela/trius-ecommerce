@@ -1,6 +1,7 @@
 /******** Main wrapper ********/
 main {
     width: 90%;
+    height: 90vh;
     margin: auto;
     display: grid;
     grid-template-columns: 14% 1fr;
@@ -9,7 +10,7 @@ main {
 
 /******** Sidebar filter ********/
 aside {
-    border: 1px solid #eaeaea;
+    border: 1px solid var(--secondary-color);
     width: 100%;
     height: min-content;
     position: relative;
@@ -53,7 +54,7 @@ section::-webkit-scrollbar {
 
 article.product-card {
     font-family: var(--heading-font);
-    border: 1px solid #eaeaea;
+    border: 1px solid var(--secondary-color);
     height: min-content;
     padding-bottom: 20px;
     position: relative;
@@ -62,7 +63,7 @@ article.product-card {
 .product-card span {
     font-family: var(--text-font);
     font-size: var(--product-price-size);
-    background-color: #2d2d2d;
+    background-color: var(--main-color);
     color: var(--white);
     padding: 5px 15px;
     position: absolute;
@@ -72,14 +73,16 @@ article.product-card {
 }
 
 .product-image-container {
-    height: 300px;
+    width: 100%;
+    height: 350px;
     overflow: hidden;
+    display: grid;
+    place-items: center;
 }
 
 .product-image-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width: 55%;
+    height: auto;
     transition: .3s ease;
 }
 
@@ -121,22 +124,50 @@ article.product-card {
 
 .product-actions-container a {
     text-decoration: none;
-    background-color: #eaeaea;
-    border: 1px solid #eaeaea;
-    color: #2d2d2d;
+    background-color: var(--secondary-color);
+    border: 1px solid var(--secondary-color);
+    color: var(--main-color);
     cursor: pointer;
 }
 
 .product-actions-container button {
     background-color: #009ee3;
-    border: 1px solid #009ee3;
-    color: #fff;
+    border: 0;
+    color: var(--white);
 }
 
 /******** Product categories ********/
 .product-categories-container {
     margin-top: 20px;
-    font-size: 1.6rem;
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-family: var(--text-font);
+}
+
+.category-tag {
+    width: fit-content;
+    padding: 4px 8px;
+    color: var(--white);
+    border-radius: 3px;
+}
+
+.cat-mens-clothing {
+    background-color: var(--category1);
+}
+
+.cat-jewelery {
+    background-color: var(--category2);
+}
+
+.cat-womens-clothing {
+    background-color: var(--category3);
+}
+
+.cat-electronics {
+    background-color: var(--category4);
 }
 
 /******** SidebarFilter ********/
@@ -154,7 +185,7 @@ aside div {
 }
 
 .toast-success {
-    background-color: #2d2d2d;
+    background-color: var(--main-color);
     color: var(--white);
     font-family: var(--text-font);
     font-size: var(--notifications-size);
@@ -199,6 +230,14 @@ aside div {
 @media (max-width: 980px) {
     section.product-list-container {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+        overflow: scroll;
+        padding-top: 0;
+    }
+}
+
+@media (max-width: 550px) {
+    section.product-list-container {
+        grid-template-columns: minmax(0, 1fr);
         overflow: scroll;
         padding-top: 0;
     }

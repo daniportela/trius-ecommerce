@@ -3,6 +3,7 @@ import NavBar from './Components/NavBar/NavBar';
 import ItemList from './Components/ItemList/ItemList';
 import ItemDetail from './Components/ItemDetail/ItemDetail';
 import FormOverlay from './Components/FormOverlay/FormOverlay';
+import Footer from './Components/Footer/Footer';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { Toaster } from 'react-hot-toast';
@@ -40,8 +41,9 @@ function App() {
             <NavBar isToggled={ formOverlayToggle } handleIsToggled={ handleFormOverlayToggle } />
             <Routes>
               <Route exact path="/" element={ <ItemList listaProductos={ listadoProductos } activeCategory={ activeCategory } handleActiveCategory={ handleCategoryChange } /> } />
-              <Route exact path="/item/:id" element={ <ItemDetail />} />
+              <Route exact path="/item/:id" element={ <ItemDetail /> } />
             </Routes>
+            <Footer />
           </BrowserRouter>
       </CustomProvider>
   );

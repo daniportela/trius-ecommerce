@@ -53,7 +53,7 @@ export default function CartWidget({ isToggled, handleToggle }) {
                             </tfoot>
                         </table>
                       </>
-                }
+                    }
             </div>
         </div>
     )

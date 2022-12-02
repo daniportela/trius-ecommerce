@@ -8,9 +8,12 @@ export default function ItemList({ listaProductos, activeCategory, handleActiveC
 
     useEffect(() => {
         listaProductos.map(p => {
-            if (!productCategories.includes(p.category)) {
-                setProductCategories([...productCategories, p.category]);
-            }
+            p.categories.forEach(cat => {
+                if (!productCategories.includes(cat)) {
+                    setProductCategories([...productCategories, cat]);
+                }
+            })
+            
             return productCategories;
         })
     }, [listaProductos, productCategories]);
@@ -20,10 +23,19 @@ export default function ItemList({ listaProductos, activeCategory, handleActiveC
             <SidebarFilter productCategories={productCategories} activeCategory={ activeCategory } handleActiveCategory={ handleActiveCategory } />
             <section className="product-list-container">
                 {listaProductos
-                    .filter(p => activeCategory.length === 0 ? p : activeCategory.includes(p.category))
+                    .filter(p => activeCategory.length === 0 ? p : activeCategory.some(r => p.categories.indexOf(r) >= 0))
                     .map(product => {
                         return (
-                            <Item key={product._id} prodId={product._id} prodTitle={product.title} prodPrice={product.price} prodCategory={product.category} prodDescription={product.description} prodImgUrl={product.image} fullProduct={product} />
+                            <Item 
+                                key={product._id} 
+                                prodId={product._id} 
+                                prodTitle={product.title} 
+                                prodPrice={product.price} 
+                                prodCategories={product.categories} 
+                                prodDescription={product.description} 
+                                prodImgUrl={product.image} 
+                                fullProduct={product}
+                            />
                         )
                     })
                 }

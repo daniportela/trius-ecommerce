@@ -18,12 +18,10 @@ const productSchema = new mongoose.Schema({
   title: String,
   price: Number,
   description: String,
-  category: String,
+  categories: [{
+    type: String
+  }],
   image: String,
-  rating: { 
-    rate: Number,
-    count: Number 
-  }
 });
 
 const ProductModel = mongoose.model("products", productSchema);
@@ -33,7 +31,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // App.get
 app.get('/products', (req, res) => {
-  const productos = ProductModel.find({}, (err, docs) => {
+  ProductModel.find({}, (err, docs) => {
     if (!err) res.send(docs);
   });
 })
@@ -43,7 +41,7 @@ app.post('/create', (req, res) => {
     title: req.body.title,
     price: req.body.price,
     description: req.body.description,
-    category: req.body.category,
+    categories: req.body.categories.split(','),
     image: req.body.image
   });
 

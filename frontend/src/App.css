@@ -15,13 +15,19 @@
   --buttons-size: 1.4rem;
   --notifications-size: 1.6rem;
 
-  /* Colores */
-  --russian-violet: #240046ff;
-  --persian-indigo: #3c096cff;
-  --purple: #5a189aff;
-  --french-violet: #7b2cbfff;
-  --amethyst: #9d4eddff;
+  /* Colors */
+  --main-color: #2d2d2d;
+  --secondary-color: #eaeaea;
   --white: #ffffff;
+  --black: #000000;
+
+  /* Misc. colors */
+  --disabled: #999999;
+  --warning: #ff6464;
+  --category1: #a7d2cb;
+  --category2: #f2d388;
+  --category3: #874c62;
+  --category4: #c98474;
 }
 
 *,
