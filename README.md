@@ -21,6 +21,13 @@ Esta aplicación es una plataforma e-commerce creada utilizando el stack MERN. M
 
 * [body-parser](https://www.npmjs.com/package/body-parser): Middleware para Node.js que facilita obtener los valores dentro del cuerpo de una request.
 
+## Estructura de los componentes
+Se implementó una estructura de responsabilidad única de los componentes. El flujo está dividido mayormente en tres partes, salvo en algunos casos en los que dos componentes son suficientes para realizar eficientemente el flujo de la información sin comprometer este principio de organización. De esta forma, la estructura de los componentes queda organizada en:
+
+Componente 1 => Componente 2 => Componente 3
+
+El primer componente es el encargado de realizar las consultas a la API y recibir la información. El segundo (Componente 2) la recibe como props y se encarga de ordenarla (Por ejemplo, en el caso de recibir una lista de productos, se realiza un map de los mismos para luego pasárselos al Componente 3). Por último, el Componente 3 se encarga de estructurar la información para mostrarla en el navegador.
+
 ## ¿Cómo lo pruebo?
 1. Clona el repositorio
 ```
