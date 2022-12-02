@@ -55,3 +55,14 @@ npm run dev
 ```
 ^C
 ```
+
+## Modificaciones pendientes
+
+Estos son algunos features para continuar mejorando la aplicación que, al momento de la entrega del proyecto, quedan pendientes:
+
+* Sistema de Auth-Login
+* Persistencia de carrito
+
+#### ¡Gracias por llegar hasta acá!
+
+> Dani Portela - Desarrollador Frontend
