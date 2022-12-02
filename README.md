@@ -7,7 +7,7 @@ Esta aplicación es una plataforma e-commerce creada utilizando el stack MERN. M
 
 ### Frontend
 
-* [react-hot-toast](https://react-hot-toast.com/) (^2.4.0): React Hot Toast es una librería que permite generar y mostrar notficaciones en pantalla de una forma altamente customizable, simple y eficiente.
+* [react-hot-toast](https://react-hot-toast.com/): React Hot Toast es una librería que permite generar y mostrar notficaciones en pantalla de una forma altamente customizable, simple y eficiente.
 
 * [React Router](https://www.npmjs.com/package/react-router): Paquete para implementar routing dentro de la aplicación.
 
