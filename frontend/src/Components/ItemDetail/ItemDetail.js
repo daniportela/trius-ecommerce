@@ -13,8 +13,8 @@ export default function ItemDetail() {
 
     useEffect(() => { // Fetch data from db once, and set the product unit (detail)
         (async () => {
-            const catalogoProductos = await fetch('http://localhost:5000/productos').then(data => data.json())
-            const unit = catalogoProductos.find(p => p._id === id);
+            const productCatalog = await fetch('http://localhost:5000/products').then(data => data.json())
+            const unit = productCatalog.find(p => p._id === id);
             setProductDetail(unit);
         })();
     }, [id])
@@ -22,7 +22,7 @@ export default function ItemDetail() {
     return (
         <section className="product-detail-container">
             <article className="product-detail">
-                <img className="product-detail-img" src={productDetail.image} alt={`Imagen de producto ${productDetail.title}`}/>
+                <img className="product-detail-img" src={productDetail.image} alt={`${productDetail.title}`}/>
                 <div className="product-detail-info">
                     <h1>{productDetail.title}</h1>
                     <p className="product-detail-price">{productDetail.price}</p>

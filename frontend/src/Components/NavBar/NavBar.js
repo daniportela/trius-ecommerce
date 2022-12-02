@@ -18,7 +18,7 @@ export default function NavBar({ handleIsToggled }) {
     return (
         <header>
             <nav>
-                <Link to="/"><img src={logo} className="logo" alt="Este es el logo del ecommerce" /></Link>
+                <Link to="/"><img src={logo} className="logo" alt="This is the e-commerce logo" /></Link>
                 <div className="header-buttons-container">
                     <div className="create-product" onClick={ handleIsToggled }>
                         <FontAwesomeIcon icon={faPlus} title="Click here to POST a new product to the database" />

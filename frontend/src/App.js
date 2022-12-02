@@ -10,7 +10,7 @@ import { Toaster } from 'react-hot-toast';
 import CustomProvider from './shopContext';
 
 function App() {
-  const [listadoProductos, setListadoProductos] = useState([]);
+  const [productListing, setProductListing] = useState([]);
   const [formOverlayToggle, setFormOverlayToggle] = useState(false);
   const [activeCategory, setActiveCategory] = useState([]); 
 
@@ -28,8 +28,8 @@ function App() {
 
   useEffect(() => { // Fetch data from db once, and set the product catalog
       (async () => {
-          const catalogoProductos = await fetch('http://localhost:5000/products').then(data => data.json())
-          setListadoProductos(catalogoProductos);
+          const productCatalog = await fetch('http://localhost:5000/products').then(data => data.json())
+          setProductListing(productCatalog);
       })();
   }, [])
 
@@ -40,7 +40,7 @@ function App() {
             <FormOverlay isToggled={ formOverlayToggle } handleIsToggled={ handleFormOverlayToggle } />
             <NavBar isToggled={ formOverlayToggle } handleIsToggled={ handleFormOverlayToggle } />
             <Routes>
-              <Route exact path="/" element={ <ItemList listaProductos={ listadoProductos } activeCategory={ activeCategory } handleActiveCategory={ handleCategoryChange } /> } />
+              <Route exact path="/" element={ <ItemList productList={ productListing } activeCategory={ activeCategory } handleActiveCategory={ handleCategoryChange } /> } />
               <Route exact path="/item/:id" element={ <ItemDetail /> } />
             </Routes>
             <Footer />

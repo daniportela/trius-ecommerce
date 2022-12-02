@@ -8,7 +8,7 @@ export default function Item({ prodId, prodTitle, prodPrice, prodCategories, pro
         <article className="product-card">
             <span>{`$${prodPrice}`}</span>
             <div className="product-image-container">
-                <img src={prodImgUrl} alt={`Imagen de producto ${prodTitle}`} />
+                <img src={prodImgUrl} alt={`${prodTitle}`} />
             </div>
             <div className="product-info-container">
                 <div className="product-title-price-container">

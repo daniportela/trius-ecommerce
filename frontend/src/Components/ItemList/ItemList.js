@@ -3,11 +3,11 @@ import Item from './Item/Item';
 import SidebarFilter from '../SidebarFilter/SidebarFilter';
 import { useState, useEffect } from 'react';
 
-export default function ItemList({ listaProductos, activeCategory, handleActiveCategory }) {
+export default function ItemList({ productList, activeCategory, handleActiveCategory }) {
     const [productCategories, setProductCategories] = useState([]);
 
     useEffect(() => {
-        listaProductos.map(p => {
+        productList.map(p => {
             p.categories.forEach(cat => {
                 if (!productCategories.includes(cat)) {
                     setProductCategories([...productCategories, cat]);
@@ -16,13 +16,13 @@ export default function ItemList({ listaProductos, activeCategory, handleActiveC
             
             return productCategories;
         })
-    }, [listaProductos, productCategories]);
+    }, [productList, productCategories]);
 
     return (
         <main>
             <SidebarFilter productCategories={productCategories} activeCategory={ activeCategory } handleActiveCategory={ handleActiveCategory } />
             <section className="product-list-container">
-                {listaProductos
+                {productList
                     .filter(p => activeCategory.length === 0 ? p : activeCategory.some(r => p.categories.indexOf(r) >= 0))
                     .map(product => {
                         return (
